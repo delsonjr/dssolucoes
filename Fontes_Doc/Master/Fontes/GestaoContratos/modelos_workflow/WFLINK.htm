@@ -1,0 +1,61 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<!-- <title>..:: EMPRESA - Processo de Workflow ::..</title> -->
+</head>
+<style type="text/css">
+    .button{
+        text-align: center; 
+        word-break: break-all; 
+        line-height: 2em; 
+        text-decoration: none; 
+        background-color: #FF6400; 
+        color: #ffffff; 
+        padding: 16px; 
+        border-radius: 12px;
+    }
+</style>
+<body style="font-family:sans-serif;padding:0px 40px;margin:0px;border-top:7px solid #FFFFFF">
+    <table bgcolor="#ffffff" style="width:100%; display: block;" cellpadding="0" cellspacing="10" border="0">
+        <tr style="height: 80px;">
+            <!-- Header -->
+            <td style="background-color: #FFFFFF;width: 100%; padding: 0px 20px">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcnzMClDFoaE2XBiJneRnl39FUXjSypRfCbFEiHOmN1g&s=10"
+				width="80" alt="EMPRESA">
+            </td>
+        </tr>
+		<tr></tr>
+        <tr>
+            <!-- To -->
+            <td colspan="2" style="border-left: 3px solid #FFFFFF;padding: 20px;">
+                <!-- <p style="font-weight: bold;">Sr(a). !WAPROV!</p>
+                <p>Preparamos esse documento para sua aprovacao.<br />
+                        Clique no botao abaixo para abrir o documento.</p> -->
+
+                <p>%BODY%</p>
+            </td>
+        </tr>
+        <tr>
+            <!-- Message -->
+            <td colspan="2" style="padding: 30px 20px;">
+                    <!-- <a href="%WLink%" title="!Wtitulo!" style="text-align: center; word-break: break-all; line-height: 2em; text-decoration: none; background-color: #D50B0B; color: #ffffff; padding: 16px; border-radius: 12px;">Clique Aqui</a>     -->
+                    <a href="%WLink%" title="!Wtitulo!" class="button">Clique Aqui</a>    
+                    <!--<p style="margin: 50px 0px 20px;">Caso n�o consiga abrir o link, copie o texto abaixo e cole no navegador.</p>
+                    <p style="width:100%; word-break: break-all;"><a href="!Wproc_link!" title="!Wtitulo!" style="color: #175e93; font-weight: bold; font-size: 16px;">!Wtexto!</a></p>-->   
+                    <!-- <p style="margin: 35px 0px;">
+					<br />
+                        Atenciosamente, <br /><br />
+                        <span style="font-size: 16px;">Workflow Protheus | Servico de Mensagens</span>
+                    </p>          -->
+                    <p>%FOOTER%</p>
+            </td>
+        </tr>
+        <tr>
+            <!-- Footer -->
+            <td colspan="2" style="background-color: #FFFFFF; padding: 12px 20px; font-weight: bold; text-align: center; color: #000000; font-size: 14px;">
+                    Mensagem enviada automaticamente pelo sistema Protheus
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

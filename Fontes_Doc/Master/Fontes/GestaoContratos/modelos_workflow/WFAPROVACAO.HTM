@@ -1,0 +1,229 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>:: APROVAÇÃO %TIPO% ::</title>
+
+	<style type="text/css">
+
+	TD{
+		font-family: Arial;
+		font-size: 12px;
+	}
+	TD.style2 {
+		font-family: Tahoma;
+		font-size: 11px;
+	}
+	TD.style3 {font-family: Arial}
+
+	.grid_titulo {
+		/* width: 98%; */
+		PADDING-RIGHT: 5px;
+		PADDING-LEFT: 5px;
+		FONT-SIZE: 8pt;
+		COLOR: #000000;
+		FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+		BACKGROUND-COLOR: #CCCCCC;
+		border: 1px solid #999999;
+	}
+
+	.grid_par {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 8pt;
+		color: #000000;
+		background-color: #EAEAEA;
+		border: 1px solid #999999;
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.grid_rateio {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 8pt;
+		color: #000000;
+		background-color: #FFFFFF;
+		border: 1px solid #999999;
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.itens {
+		 width: 98%;
+		 height: auto;
+		 align: center;
+		 border: 2px solid #000000;
+		 margin: 0px 7px 0px 10px;
+	}
+
+	.itens table {
+		width: 100%;
+	}
+
+	.logo {
+		width: 25%;
+		align: center;
+		padding: 0px 20px;
+		margin-left: 20px;
+	}
+
+	</style>
+</head>
+
+<body>
+	<form name="form1" method="post" action="mailto:%WFMailTo%" >
+	<table width="850" height="0" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+		<tr>
+			<td width="754" valign="top">
+				<table width="100%">
+					<tr>
+						<br>
+						<td width="20%" align="left" style="padding: 0px 10px">
+							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcnzMClDFoaE2XBiJneRnl39FUXjSypRfCbFEiHOmN1g&s=10"
+							width="80" alt="EMPRESA">
+						</td>
+						<td width="80%" align="center" class=".style3"><strong>APROVAÇÃO %TIPO%</strong></td>
+						<td width="2%" height="81">&nbsp;</td>
+					</tr>
+				</table>
+				<br>
+				<table width="98%" align="center" height="0" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+					<tr>
+						<td>
+							<table width="100%">
+								<tr>
+									<td>Codigo: %CODIGO%</td>
+									<td>%TP_NOME%: %NOME%</td>
+									<td>CNPJ: %CGC%</td>
+								</tr>
+							</table>
+							<table width="100%">
+								<tr>
+									<td><b>Documento Nº: %NUM_PED%</b></td>
+									<td>Emissão: %EMISSAO%</td>
+								</tr>
+							</table>
+							<table width="100%">
+								<tr>
+									<!-- Campos incluidos para uso opcional pelo workflow de Contrato/Medicao de Contrato:
+									     ficam em branco quando nao preenchidos pela rotina que originou o e-mail
+									     (ex.: workflow de Pedido/Solicitacao de Compras). -->
+									<td>Revisão: %REVISAO%</td>
+									<td>Competência: %COMPETENCIA%</td>
+								</tr>
+							</table>
+							<table width="100%">
+								<tr>
+									<td>Cond. Pagamento: %COND% - %E4_DESCRI%</td>
+								</tr>
+							</table>
+							<table width="100%">
+								<tr>
+									<td>Solicitante: %SOLICIT%</td>
+								</tr>
+							</table>
+
+						</td>
+					</tr>
+				</table>
+				<br />&nbsp;&nbsp;&nbsp;<b>%TP_ITEM%</b>
+				<div class="itens">
+					<table classname="itens">
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td class="grid_titulo">Item</td>
+										<td class="grid_titulo">Produto</td>
+										<td class="grid_titulo">Descrição</td>
+										<td class="grid_titulo">U.M.</td>
+										<td class="grid_titulo">Conta Contábil</td>
+										<td class="grid_titulo">Centro de Custo</td>
+										<td class="grid_titulo">Item Conta</td>
+										<td class="grid_titulo">Quant.</td>
+										<td class="grid_titulo">Saldo</td>
+										<td class="grid_titulo">Vlr. Unitário</td>
+										<td class="grid_titulo">Vlr. Total</td>
+									</tr>
+									<tr>
+										<td class="grid_par">%item.ITEM%</td>
+										<td class="grid_par">%item.PROD%</td>
+										<td class="grid_par">%item.DESCRI%</td>
+										<td class="grid_par">%item.UM%</td>
+										<td class="grid_par">%item.CONTA%</td>
+										<td class="grid_par">%item.CC%</td>
+										<td class="grid_par">%item.ITEMCTA%</td>
+										<td class="grid_par">%item.QUANT%</td>
+										<td class="grid_par">%item.SALDO%</td>
+										<td class="grid_par">%item.PRECO%</td>
+										<td class="grid_par">%item.TOTAL%</td>
+									</tr>
+									<tr>
+										<td class="grid_par" Colspan='09'>Total Geral</td><strong></strong>
+										<td class="grid_par">%MOEDA% %VLRTOT%</td><strong></strong>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br />&nbsp;&nbsp;&nbsp;</b>
+					<table width="98%" align="center" height="0" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td>Observação: </td>
+										<td>%OBSERVACAO%</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table><br>
+				<br />&nbsp;
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table width="850" height="0" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+		<tr>
+			<td width="45%" valign="top" height="10" class="style2" align="center"><b>SOLICITANTE/APROVADOR</b></td>
+		</tr>
+		<tr>
+		<td width="40%" valign="top" height="80" class="style2" style="padding-left: 250px; "><br>
+			&nbsp;GRUPO DE APROVAÇÃO : %GRUPO%<br>
+			&nbsp;APROVADOR : %USER% - %APROVADOR%<br><br>
+			<div style="padding-left: 05px; padding-bottom: 30px">
+				<table width="58%" align="left" height="0" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+					<tr align="center">
+						<td class="grid_titulo">Nível</td>
+						<td class="grid_titulo">Aprovador</td>
+						<td class="grid_titulo">Status</td>
+						<td class="grid_titulo">Comentário</td>
+					</tr>
+					<tr align="center">
+						<td class="grid_par">%apv.NIVEL%</td>
+						<td class="grid_par">%apv.APROV%</td>
+						<td class="grid_par">%apv.STATUS%</td>
+						<td class="grid_par">%apv.COMENT%</td>
+					</tr>
+				</table>
+			</div>
+			<br />&nbsp;&nbsp;&nbsp;</b>
+			<br />&nbsp;
+			<br><strong>&nbsp;Aprovação</strong><br/>
+			<input type="radio" name="Aprovacao"  value="%aprovacao%S" required>SIM<br>
+			<input type="radio" name="Aprovacao" value="%aprovacao%N">NÃO
+			<input type="radio" name="RECNO" value="%RECNO%" hidden>
+			<input type="radio" name="C7_FILIAL" value="%C7_FILIAL%" hidden>
+			<input type="radio" name="C7_NUM" value="%C7_NUM%" hidden>
+			&nbsp;(Favor especificar motivo) <br /> <br>
+			&nbsp;Motivo/Comentário<br />
+			&nbsp;<textarea name="S1" cols="38" rows="6" id="S1">%MOTIVO%</textarea><br />
+			&nbsp;<input name="%botoes%" type="submit" id="%botoes%" value="Enviar"><br /><br>
+		</form>
+		</td>
+		</tr>
+	</table>
+</body>
+</html>
