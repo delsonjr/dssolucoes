@@ -44,8 +44,10 @@ User Function CAWFCT01()
 	endif
 
 
-	cURLWF      := GetNewPar("ZZ_URLWF", "https://caoachery188151.protheus.cloudtotvs.com.br:11121/workflow")
+	cURLWF      := GetNewPar("ZZ_URLWF", "https://caoachery188151.protheus.cloudtotvs.com.br:11121")
 	cEmpWF      := GetNewPar("ZZ_EMPWF", "emp01")
+	//cURLWF      := GetNewPar("ZZ_URLWF", "http://localhost:81/wf")
+	//cEmpWF      := GetNewPar("ZZ_EMPWF", "emp99")
 
 	dbselectarea('CNA')
 	dbselectarea('CNB')
@@ -58,7 +60,7 @@ User Function CAWFCT01()
 
 
 	oProcess := TWFProcess():New("WFCONTRATO", "Workflow de Aprovacao de Contrato")
-	oProcess:NewTask("000005", "\WORKFLOW\WFAPROVACAO.HTM")
+	oProcess:NewTask("000005", "\WORKFLOW\WFCOMPRAS\WFAPROVACAO.HTM")
 	oProcess:cSubject := "Workflow de Aprovacao de Contrato " + CN9->CN9_NUMERO
 	oProcess:bReturn := "U_CAWFCT02()"
 	oProcess:fDesc := "Contrato N. " + CN9->CN9_NUMERO
@@ -141,7 +143,6 @@ User Function CAWFCT01()
 	oHTML:ValByName('USER'      , cAprov)
 	oHTML:ValByName('APROVADOR', UsrFullName(cAprov))
 
-	//oProcess:cTo := 'delsonjrantunes@hotmail.com;delsonjunior@gmail.com'
 	oProcess:cTo := "WFAPROVACAO"
 	oProcess:UserSiga := __cUserID
 	cMailId := oProcess:Start()
@@ -153,11 +154,11 @@ User Function CAWFCT01()
 	cFooter := "Atenciosamente, " + "<br>"
 	cFooter += "Workflow Protheus | Servico de Mensagens" + "<br>"
 
-	cHtmlModelo := "\workflow\wflink.htm"
+	cHtmlModelo := "\WORKFLOW\WFCOMPRAS\wflink.htm"
 	oProcess:NewTask(cAssunto, cHtmlModelo)
 	oProcess:cSubject := cAssunto
 	//oProcess:cTo := AllTrim(cTo)
-	oProcess:cTo := 'delsonjrantunes@hotmail.com;delsonjunior@gmail.com'
+	oProcess:cTo := 'delsonjrantunes@hotmail.com'
 
 	oProcess:oHtml:ValByName("BODY"  , cBody)
 	oProcess:oHtml:ValByName("FOOTER", cFooter)

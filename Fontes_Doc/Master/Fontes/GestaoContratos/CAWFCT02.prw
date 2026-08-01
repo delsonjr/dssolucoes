@@ -14,14 +14,23 @@ aprovacao total e responsabilidade do motor nativo de alcada do GCT
 /*/
 User Function CAWFCT02(oProcess)
 
-	Local cFilCtr  := oProcess:oHtml:RetByName('C7_FILIAL')
-	Local cNumCtr  := oProcess:oHtml:RetByName('C7_NUM')
-	Local nRecno   := oProcess:oHtml:RetByName('RECNO')
-	Local cMotivo  := oProcess:oHtml:RetByName('MOTIVO')
-	Local lAprov   := Right(AllTrim(Upper(oProcess:oHtml:RetByName('aprovacao'))), 1) == "S"
+	Local cFilCtr  := ""
+	Local cNumCtr  := ""
+	Local nRecno   := ""
+	Local cMotivo  := ""
+	Local lAprov   := ""
 	Local lAllApv  := .T.
 	Local lRejeit  := .F.
 	Local aAreaSCR := SCR->(GetArea())
+	Conout('Job Workflow Iniciando liberação de Contrato ')
+
+	cFilCtr  := oProcess:oHtml:RetByName('C7_FILIAL')
+	cNumCtr  := oProcess:oHtml:RetByName('C7_NUM')
+	nRecno   := oProcess:oHtml:RetByName('RECNO')
+	cMotivo  := oProcess:oHtml:RetByName('MOTIVO')
+	lAprov   := Right(AllTrim(Upper(oProcess:oHtml:RetByName('aprovacao'))), 1) == "S"
+	lRejeit  := .F.
+	aAreaSCR := SCR->(GetArea())
 
 	dbselectarea("SCR")
 	SCR->(dbGoTo(nRecno))
@@ -87,7 +96,7 @@ Static Function EDNotifCT(lStatus, cFilCtr, cNumCtr)
 	CN9->(dbSeek(cFilCtr + cNumCtr))
 
 	oNotifica := TWFProcess():New("WFNOTIF", "E-mail de Notificacao de Contrato")
-	oNotifica:NewTask("000004", "\WORKFLOW\WFNOTIFICA.HTM")
+	oNotifica:NewTask("000004", "\WORKFLOW\WFCOMPRAS\WFNOTIFICA.HTM")
 
 	If lStatus
 		oNotifica:cSubject := "CONTRATO N. " + cNumCtr + " - APROVADO"

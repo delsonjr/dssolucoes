@@ -28,7 +28,7 @@ User Function CAWFMD01()
 	Local cBody       := ""
 	Local cFooter     := ""
 	Local cHtmlModelo := ""
-	Local cURLWF      := GetNewPar("ZZ_URLWF", "https://caoachery188151.protheus.cloudtotvs.com.br:11121/workflow")
+	Local cURLWF      := GetNewPar("ZZ_URLWF", "https://caoachery188151.protheus.cloudtotvs.com.br:11121")
 	Local cEmpWF      := GetNewPar("ZZ_EMPWF", "emp01")
 	Local nVlrTotal   := 0
 	Local oProcess
@@ -38,7 +38,7 @@ User Function CAWFMD01()
 	CN9->(dbSeek(CND->CND_FILIAL + CND->CND_CONTRA + CND->CND_REVISA))
 
 	oProcess := TWFProcess():New("WFMEDICAO", "Workflow de Aprovacao de Medicao de Contrato")
-	oProcess:NewTask("000006", "\WORKFLOW\WFAPROVACAO.HTM")
+	oProcess:NewTask("000006", "\WORKFLOW\WFCOMPRAS\WFAPROVACAO.HTM")
 	oProcess:cSubject := "Workflow de Aprovacao de Medicao de Contrato " + CND->CND_NUMMED
 	oProcess:bReturn := "U_CAWFMD02()"
 	oProcess:fDesc := "Medicao N. " + CND->CND_NUMMED + " - Contrato " + CND->CND_CONTRA
@@ -122,7 +122,7 @@ User Function CAWFMD01()
 	oHTML:ValByName('APROVADOR', UsrFullName(cAprov))
 
 	oProcess:cTo := "WFAPROVACAO"
-	oProcess:UserSiga := __cUserID
+	oProcess:UserSiga := "delsonjrantunes@hotmail.com" //__cUserID
 	cMailId := oProcess:Start()
 
 	cBody := "<b>Sr(a). " + AllTrim(UsrFullName(cAprov)) + "</b><br><br>"
@@ -132,7 +132,7 @@ User Function CAWFMD01()
 	cFooter := "Atenciosamente, " + "<br>"
 	cFooter += "Workflow Protheus | Servico de Mensagens" + "<br>"
 
-	cHtmlModelo := "\workflow\modelos_workflow\wflink.htm"
+	cHtmlModelo := "\WORKFLOW\WFCOMPRAS\wflink.htm"
 	oProcess:NewTask(cAssunto, cHtmlModelo)
 	oProcess:cSubject := cAssunto
 	oProcess:cTo := AllTrim(cTo)

@@ -27,7 +27,6 @@ User Function CNTA300()
 
 			// --> Workflow de aprovacao por e-mail apos a confirmacao da inclusao do contrato
 			If INCLUI .OR. ALTERA
-				//U_CAWFCTChk(oObj)
 
 				cFilCtr   := xFilial('CN9')
 				cNumCtr   := CN9->CN9_NUMERO

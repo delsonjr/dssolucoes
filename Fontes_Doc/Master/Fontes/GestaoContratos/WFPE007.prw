@@ -32,8 +32,6 @@ User Function WFPE007()
 	cHTML += '        <tr>
 	cHTML += '            <td colspan="2" style="border-left: 3px solid #FFFFFF;padding: 20px;">
 
-	cHTML += '                <p>Documento enviado para processamento no sistema!</p>
-
 	If ( plSuccess )
 		//-------------------------------------------------------------------
 		// Mensagem em formato HTML para sucesso no processamento.

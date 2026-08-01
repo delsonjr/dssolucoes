@@ -91,7 +91,7 @@ Static Function EDNotifMD(lStatus, cFilMed, cNumMed)
 	CN9->(dbSeek(CND->CND_FILIAL + CND->CND_CONTRA + CND->CND_REVISA))
 
 	oNotifica := TWFProcess():New("WFNOTIF", "E-mail de Notificacao de Medicao de Contrato")
-	oNotifica:NewTask("000004", "\WORKFLOW\modelos_workflow\WFNOTIFICA.HTM")
+	oNotifica:NewTask("000004", "\WORKFLOW\WFCOMPRAS\WFNOTIFICA.HTM")
 
 	If lStatus
 		oNotifica:cSubject := "MEDICAO DE CONTRATO N. " + cNumMed + " - APROVADA"
